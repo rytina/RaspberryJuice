@@ -23,7 +23,8 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.ProjectileHitEvent;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
+import io.papermc.paper.event.player.AsyncChatEvent;
+import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.Vector;
 
@@ -55,7 +56,7 @@ public class RemoteSession {
 
 	protected ArrayDeque<PlayerInteractEvent> interactEventQueue = new ArrayDeque<PlayerInteractEvent>();
 	
-	protected ArrayDeque<AsyncPlayerChatEvent> chatPostedQueue = new ArrayDeque<AsyncPlayerChatEvent>();
+	protected ArrayDeque<AsyncChatEvent> chatPostedQueue = new ArrayDeque<>();
 	
 	protected ArrayDeque<ProjectileHitEvent> projectileHitQueue = new ArrayDeque<ProjectileHitEvent>();
 
@@ -107,7 +108,7 @@ public class RemoteSession {
 		interactEventQueue.add(event);
 	}
 
-	public void queueChatPostedEvent(AsyncPlayerChatEvent event) {
+	public void queueChatPostedEvent(AsyncChatEvent event) {
 		//plugin.getLogger().info(event.toString());
 		chatPostedQueue.add(event);
 	}

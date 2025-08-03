@@ -1,11 +1,11 @@
 package net.zhuoweizhang.raspberryjuice;
 
 import java.net.InetSocketAddress;
-import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -27,10 +27,10 @@ public class RaspberryJuicePlugin extends JavaPlugin implements Listener {
 
 	public static final Set<Material> blockBreakDetectionTools = EnumSet.of(
 			Material.DIAMOND_SWORD,
-			Material.GOLD_SWORD, 
+			Material.GOLDEN_SWORD, 
 			Material.IRON_SWORD, 
 			Material.STONE_SWORD, 
-			Material.WOOD_SWORD);
+			Material.WOODEN_SWORD);
 
 	public ServerListenerThread serverThread;
 
@@ -77,8 +77,8 @@ public class RaspberryJuicePlugin extends JavaPlugin implements Listener {
 		}
 		getLogger().info("Using " + hitClickType.name() + " clicks for hits");
 
-		//setup session array
-		sessions = new ArrayList<RemoteSession>();
+		//setup thread-safe session array
+		sessions = new CopyOnWriteArrayList<>();
 		
 		//create new tcp listener thread
 		try {
