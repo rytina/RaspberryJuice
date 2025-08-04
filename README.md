@@ -1,8 +1,21 @@
-> **_NOTE:_** RaspberryJuice is end of life, no further releases are planned. [Read about why](https://github.com/zhuowei/RaspberryJuice/pull/84#issuecomment-544295161). The repository will remain open for issues but no PRs will be accepted. Thank you for the fun times.
-
 # RaspberryJuice
 
 A Bukkit plugin which implements the Minecraft Pi Socket API.
+
+**Current Version**: Supports Minecraft 1.20+ and requires Java 21+
+
+## Requirements
+
+- Java 21 or higher
+- Minecraft Server 1.20+ (Bukkit/Spigot/Paper compatible)
+- For building: Maven 3.6+
+
+## Installation
+
+1. Download the plugin JAR file
+2. Place it in your server's `plugins/` directory
+3. Start/restart your Minecraft server
+4. Configure the plugin using `plugins/RaspberryJuice/config.yml`
 
 ## Commands
 
@@ -79,16 +92,22 @@ You only need the modded libraries to use the extra features, the original libra
 
 ## Build
 
-To build RaspberryJuice, [download and install Maven](https://maven.apache.org/install.html), clone the repository, run `mvn package':
+To build RaspberryJuice, [download and install Maven](https://maven.apache.org/install.html) and ensure you have Java 21+ installed, then clone the repository and run `mvn package`:
 
-```
-git clone https://github.com/zhuowei/RaspberryJuice
+```bash
+git clone https://github.com/rytina/RaspberryJuice
 cd RaspberryJuice
 mvn package
 ```
 
+**Requirements for building:**
+- Java 21 or higher
+- Maven 3.6 or higher
+- Internet connection for downloading dependencies
+
 ## Version history
 
+ - 1.20.0 - Updated for Minecraft 1.20+ and Java 21+ support, modern dependencies
  - 1.12.1 - hostname specified in config.yml
  - 1.12 - getEntities, removeEntities, pollProjectileHits, events calls by player and entity
  - 1.11 - spawnEntity, setDirection, setRotation, setPitch
